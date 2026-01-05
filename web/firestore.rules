@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Pain logs: any authenticated user can read/write all logs
+    match /painLogs/{logId} {
+      // Read: any authenticated user
+      allow read: if request.auth != null;
+
+      // Create: any authenticated user, validate painScore
+      allow create: if request.auth != null
+                    && request.resource.data.painScore is int
+                    && request.resource.data.painScore >= 0
+                    && request.resource.data.painScore <= 10;
+
+      // Update: any authenticated user, validate painScore
+      allow update: if request.auth != null
+                    && request.resource.data.painScore is int
+                    && request.resource.data.painScore >= 0
+                    && request.resource.data.painScore <= 10;
+
+      // Delete: any authenticated user
+      allow delete: if request.auth != null;
+    }
+
+    // Activity events: any authenticated user can read/write all events
+    match /activityEvents/{eventId} {
+      // Read: any authenticated user
+      allow read: if request.auth != null;
+
+      // Create: any authenticated user
+      allow create: if request.auth != null;
+
+      // Update: any authenticated user
+      allow update: if request.auth != null;
+
+      // Delete: any authenticated user
+      allow delete: if request.auth != null;
+    }
+  }
+}
+
+
