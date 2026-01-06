@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
       <section>
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-strong">
-          Pain dashboard
+          Dashboard
         </h1>
         <p className="text-xs sm:text-sm text-text-muted">
           Quickly record how you feel, see recent entries, and view trends over
