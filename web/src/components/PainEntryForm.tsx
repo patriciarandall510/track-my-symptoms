@@ -91,14 +91,14 @@ export function PainEntryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 sm:space-y-6 rounded-xl sm:rounded-2xl border border-slate-200/70 dark:border-slate-700/70 bg-white dark:bg-slate-800 p-3 sm:p-6 shadow-sm"
+      className="space-y-4 sm:space-y-6 rounded-xl sm:rounded-2xl border border-border bg-card p-3 sm:p-6 shadow-sm"
     >
       <div className="space-y-4">
         <div>
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+          <h2 className="text-sm font-semibold text-text-strong">
             How is your pain right now?
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-text-muted">
             0 = no pain, 10 = worst imaginable.
           </p>
         </div>
@@ -126,7 +126,7 @@ export function PainEntryForm() {
 
       <div className="grid gap-2.5 sm:gap-3 sm:grid-cols-2">
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             Where is the pain?
           </label>
           <input
@@ -134,17 +134,17 @@ export function PainEntryForm() {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             placeholder="e.g. right knee, lower back"
-            className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="w-full rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text placeholder:text-text-muted shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
         </div>
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             What does it feel like?
           </label>
           <select
             value={quality}
             onChange={(e) => setQuality(e.target.value)}
-            className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="w-full rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           >
             <option value="">Select</option>
             {qualities.map((q) => (
@@ -157,7 +157,7 @@ export function PainEntryForm() {
       </div>
 
       <div className="space-y-1">
-        <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+        <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
           Notes
         </label>
         <textarea
@@ -165,12 +165,12 @@ export function PainEntryForm() {
           onChange={(e) => setNotes(e.target.value)}
           rows={2}
           placeholder="Anything else about the pain, what you were doing, etc."
-          className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 focus:bg-white dark:focus:bg-slate-800"
+          className="w-full rounded-lg sm:rounded-xl border border-border bg-muted px-2 py-1.5 text-xs sm:text-sm text-text placeholder:text-text-muted shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary focus:bg-input"
         />
       </div>
 
       <div className="space-y-1">
-        <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+        <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
           When was this?
         </label>
         <div className="flex flex-wrap items-center gap-2">
@@ -178,13 +178,13 @@ export function PainEntryForm() {
             type="date"
             value={dateStr}
             onChange={(e) => setDateStr(e.target.value)}
-            className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
           <input
             type="time"
             value={timeStr}
             onChange={(e) => setTimeStr(e.target.value)}
-            className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
           <button
             type="button"
@@ -193,7 +193,7 @@ export function PainEntryForm() {
               setDateStr(now.toISOString().slice(0, 10));
               setTimeStr(now.toTimeString().slice(0, 5));
             }}
-            className="rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-50 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800"
+            className="rounded-lg sm:rounded-xl border border-border bg-card-2 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-text shadow-sm transition-colors hover:border-border-subtle hover:bg-card"
           >
             Now
           </button>
@@ -203,7 +203,7 @@ export function PainEntryForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full inline-flex items-center justify-center rounded-lg sm:rounded-xl bg-blue-600 px-4 py-2.5 sm:py-3 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-60 transition-colors"
+        className="w-full inline-flex items-center justify-center rounded-lg sm:rounded-xl bg-primary px-4 py-2.5 sm:py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-hover disabled:opacity-60 transition-colors"
       >
         {submitting ? "Saving…" : "Save pain entry"}
       </button>

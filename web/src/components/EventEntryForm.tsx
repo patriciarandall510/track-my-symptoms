@@ -79,26 +79,26 @@ export function EventEntryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 sm:space-y-6 rounded-xl sm:rounded-2xl border border-slate-200/70 dark:border-slate-700/70 bg-white dark:bg-slate-800 p-3 sm:p-6 shadow-sm"
+      className="space-y-4 sm:space-y-6 rounded-xl sm:rounded-2xl border border-border bg-card p-3 sm:p-6 shadow-sm"
     >
       <div className="space-y-1">
-        <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-sm font-semibold text-text-strong">
           Log PT, exercise, or other events
         </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-text-muted">
           Track when you did PT, ran, took long drives, etc.
         </p>
       </div>
 
       <div className="grid gap-2.5 sm:gap-3 sm:grid-cols-2">
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             Type
           </label>
           <select
             value={type}
             onChange={(e) => setType(e.target.value as ActivityType)}
-            className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="w-full rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           >
             {activityTypes.map((t) => (
               <option key={t.value} value={t.value}>
@@ -108,7 +108,7 @@ export function EventEntryForm() {
           </select>
         </div>
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             When
           </label>
           <div className="flex flex-wrap items-center gap-2">
@@ -116,13 +116,13 @@ export function EventEntryForm() {
               type="date"
               value={dateStr}
               onChange={(e) => setDateStr(e.target.value)}
-              className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+              className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
             />
             <input
               type="time"
               value={timeStr}
               onChange={(e) => setTimeStr(e.target.value)}
-              className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+              className="flex-1 min-w-0 rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
             />
             <button
               type="button"
@@ -131,7 +131,7 @@ export function EventEntryForm() {
                 setDateStr(now.toISOString().slice(0, 10));
                 setTimeStr(now.toTimeString().slice(0, 5));
               }}
-              className="rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-50 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800"
+              className="rounded-lg sm:rounded-xl border border-border bg-card-2 px-2.5 sm:px-3 py-1.5 text-xs font-medium text-text shadow-sm transition-colors hover:border-border-subtle hover:bg-card"
             >
               Now
             </button>
@@ -141,7 +141,7 @@ export function EventEntryForm() {
 
       <div className="grid gap-2.5 sm:gap-3 sm:grid-cols-2">
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             Duration (minutes)
           </label>
           <input
@@ -149,11 +149,11 @@ export function EventEntryForm() {
             min={0}
             value={durationMinutes}
             onChange={(e) => setDurationMinutes(e.target.value)}
-            className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="w-full rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
         </div>
         <div className="space-y-1">
-          <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+          <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
             Intensity
           </label>
           <select
@@ -161,7 +161,7 @@ export function EventEntryForm() {
             onChange={(e) =>
               setIntensity(e.target.value as (typeof intensities)[number] | "")
             }
-            className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="w-full rounded-lg sm:rounded-xl border border-border bg-input px-2 py-1.5 text-xs sm:text-sm text-text shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           >
             <option value="">Select</option>
             {intensities.map((i) => (
@@ -174,7 +174,7 @@ export function EventEntryForm() {
       </div>
 
       <div className="space-y-1">
-        <label className="block text-xs font-medium text-slate-600 uppercase tracking-wide dark:text-slate-400">
+        <label className="block text-xs font-medium text-text-secondary uppercase tracking-wide">
           Notes
         </label>
         <textarea
@@ -182,7 +182,7 @@ export function EventEntryForm() {
           onChange={(e) => setNotes(e.target.value)}
           rows={2}
           placeholder="Anything notable about the session or event."
-          className="w-full rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-2 py-1.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-sm transition-colors hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 focus:bg-white dark:focus:bg-slate-800"
+          className="w-full rounded-lg sm:rounded-xl border border-border bg-muted px-2 py-1.5 text-xs sm:text-sm text-text placeholder:text-text-muted shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary focus:bg-input"
         />
       </div>
 
@@ -190,7 +190,7 @@ export function EventEntryForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg sm:rounded-xl bg-blue-600 px-4 py-2.5 sm:py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-60 transition-colors"
+          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg sm:rounded-xl bg-primary px-4 py-2.5 sm:py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-hover disabled:opacity-60 transition-colors"
         >
           {submitting ? "Saving…" : "Save event"}
         </button>

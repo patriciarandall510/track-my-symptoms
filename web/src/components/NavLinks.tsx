@@ -22,8 +22,8 @@ export function NavLinks() {
             href={link.href}
             className={
               isActive
-                ? "text-slate-900 font-semibold border-b-2 border-blue-600 pb-3"
-                : "text-slate-600 hover:text-slate-900 pb-3 border-b-2 border-transparent"
+                ? "text-text-strong font-semibold border-b-2 border-primary pb-3"
+                : "text-text-secondary hover:text-text-strong pb-3 border-b-2 border-transparent"
             }
           >
             {link.label}

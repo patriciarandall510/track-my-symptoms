@@ -35,17 +35,17 @@ function PainTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   const point = payload[0].payload as ChartPoint;
   return (
-    <div className="rounded-md border bg-white px-3 py-2 text-xs shadow-sm">
-      <div className="font-medium text-slate-900">
+    <div className="rounded-md border border-border bg-popover px-3 py-2 text-xs shadow-sm">
+      <div className="font-medium text-text-strong">
         {format(label as Date, "MMM d, yyyy")}
       </div>
-      <div className="mt-1 space-y-0.5 text-sm text-slate-700">
+      <div className="mt-1 space-y-0.5 text-sm text-text">
         <div>Average: {point.avg.toFixed(1)}</div>
         <div>
           Range: {point.min} – {point.max}
         </div>
         {point.eventsSummary && (
-          <div className="text-slate-500">
+          <div className="text-text-muted">
             Events: {point.eventsSummary}
           </div>
         )}
@@ -61,12 +61,12 @@ export function PainChart() {
   });
 
   if (painLoading || eventsLoading) {
-    return <p className="text-sm text-slate-500">Loading chart…</p>;
+    return <p className="text-sm text-text-muted">Loading chart…</p>;
   }
 
   if (!painLogs.length) {
     return (
-      <p className="text-sm text-slate-500">
+      <p className="text-sm text-text-muted">
         No pain entries yet. Once you log a few, you&apos;ll see them here.
       </p>
     );
@@ -138,13 +138,13 @@ export function PainChart() {
     });
 
   return (
-    <div className="space-y-2 sm:space-y-3 rounded-xl sm:rounded-2xl border border-slate-200/70 dark:border-slate-700/70 bg-white dark:bg-slate-800 p-3 sm:p-6 shadow-sm">
+    <div className="space-y-2 sm:space-y-3 rounded-xl sm:rounded-2xl border border-border bg-card p-3 sm:p-6 shadow-sm">
       <div className="flex items-center justify-between gap-2">
         <div>
-          <h2 className="text-sm font-semibold text-slate-900">
+          <h2 className="text-sm font-semibold text-text-strong">
             Pain over time
           </h2>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-text-muted">
             Each point shows the average pain for a day; dots indicate days with
             PT or activity.
           </p>
@@ -181,7 +181,7 @@ export function PainChart() {
               type="monotone"
               dataKey="avg"
               name="Average pain"
-              stroke="#2563eb"
+              stroke="var(--primary, #2563eb)"
               strokeWidth={2}
               dot={(props: any) => {
                 const { cx, cy, payload } = props;

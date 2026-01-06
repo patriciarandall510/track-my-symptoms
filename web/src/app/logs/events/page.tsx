@@ -7,10 +7,10 @@ export default function EventsPage() {
   return (
     <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
       <section>
-        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-strong">
           PT & activity log
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-xs sm:text-sm text-text-muted">
           Track when you complete physical therapy sessions, runs, long drives,
           and other events that might affect your symptoms.
         </p>

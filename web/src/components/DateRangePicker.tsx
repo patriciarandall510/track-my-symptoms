@@ -52,14 +52,14 @@ export function DateRangePicker({ value, onChange }: Props) {
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <div className="flex gap-1 rounded-full border bg-white p-0.5 text-xs">
+      <div className="flex gap-1 rounded-full border border-border bg-card p-0.5 text-xs">
         <button
           type="button"
           onClick={() => setPreset("7d")}
-          className={`rounded-full px-2 py-1 ${
+          className={`rounded-full px-2 py-1 transition-colors ${
             value.preset === "7d"
-              ? "bg-zinc-900 text-white"
-              : "text-zinc-700 hover:bg-zinc-100"
+              ? "bg-primary text-white"
+              : "text-text-secondary hover:bg-muted"
           }`}
         >
           7 days
@@ -67,10 +67,10 @@ export function DateRangePicker({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => setPreset("30d")}
-          className={`rounded-full px-2 py-1 ${
+          className={`rounded-full px-2 py-1 transition-colors ${
             value.preset === "30d"
-              ? "bg-zinc-900 text-white"
-              : "text-zinc-700 hover:bg-zinc-100"
+              ? "bg-primary text-white"
+              : "text-text-secondary hover:bg-muted"
           }`}
         >
           30 days
@@ -78,10 +78,10 @@ export function DateRangePicker({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => setPreset("90d")}
-          className={`rounded-full px-2 py-1 ${
+          className={`rounded-full px-2 py-1 transition-colors ${
             value.preset === "90d"
-              ? "bg-zinc-900 text-white"
-              : "text-zinc-700 hover:bg-zinc-100"
+              ? "bg-primary text-white"
+              : "text-text-secondary hover:bg-muted"
           }`}
         >
           90 days
@@ -89,32 +89,32 @@ export function DateRangePicker({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => setPreset("all")}
-          className={`rounded-full px-2 py-1 ${
+          className={`rounded-full px-2 py-1 transition-colors ${
             value.preset === "all"
-              ? "bg-zinc-900 text-white"
-              : "text-zinc-700 hover:bg-zinc-100"
+              ? "bg-primary text-white"
+              : "text-text-secondary hover:bg-muted"
           }`}
         >
           All time
         </button>
       </div>
       <div className="flex items-center gap-2 text-xs">
-        <label className="text-zinc-600">
+        <label className="text-text-secondary">
           From{" "}
           <input
             type="date"
             value={fromInput}
             onChange={(e) => updateFrom(e.target.value)}
-            className="rounded-xl border border-slate-200 bg-white px-1.5 py-1 shadow-sm transition-colors hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="rounded-xl border border-border bg-input text-text px-1.5 py-1 shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
         </label>
-        <label className="text-zinc-600">
+        <label className="text-text-secondary">
           To{" "}
           <input
             type="date"
             value={toInput}
             onChange={(e) => updateTo(e.target.value)}
-            className="rounded-xl border border-slate-200 bg-white px-1.5 py-1 shadow-sm transition-colors hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400"
+            className="rounded-xl border border-border bg-input text-text px-1.5 py-1 shadow-sm transition-colors hover:border-border-subtle focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary"
           />
         </label>
       </div>

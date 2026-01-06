@@ -1,22 +1,162 @@
 @import "tailwindcss";
 
+/* ============================================
+   LIGHT MODE (default) - Base Variables
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+
+  /* ---------- Surfaces ---------- */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-2: #f1f5f9;
+  --bg-popover: #ffffff;
+  --bg-input: #ffffff;
+  --bg-muted: #f1f5f9;
+
+  /* ---------- Borders / Dividers ---------- */
+  --border: #e2e8f0;
+  --border-subtle: rgba(100, 116, 139, 0.16);
+  --divider: rgba(100, 116, 139, 0.10);
+
+  /* ---------- Text ---------- */
+  --text: #1e293b;
+  --text-strong: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-disabled: #94a3b8;
+
+  /* ---------- Brand (Primary) ---------- */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-soft: rgba(37, 99, 235, 0.12);
+  --primary-glow: rgba(37, 99, 235, 0.24);
+
+  /* ---------- Accent (Secondary) ---------- */
+  --accent: #0891b2;
+  --accent-soft: rgba(8, 145, 178, 0.12);
+  --accent-glow: rgba(8, 145, 178, 0.24);
+
+  /* ---------- Status ---------- */
+  --success: #16a34a;
+  --success-soft: rgba(22, 163, 74, 0.12);
+  --warning: #d97706;
+  --warning-soft: rgba(217, 119, 6, 0.12);
+  --danger: #dc2626;
+  --danger-soft: rgba(220, 38, 38, 0.12);
+
+  /* ---------- Focus ring ---------- */
+  --ring: var(--primary-glow);
 }
 
+/* ============================================
+   DARK MODE - Override Variables
+   ============================================ */
+:root.dark,
+.dark {
+  --background: #0B1020;
+  --foreground: #E5E7EB;
+
+  /* ---------- Surfaces ---------- */
+  --bg-app: #0B1020;
+  --bg-surface: #0F172A;
+  --bg-card: #111C2F;
+  --bg-card-2: #0D1526;
+  --bg-popover: #0B1220;
+  --bg-input: #0B1220;
+  --bg-muted: #0B1326;
+
+  /* ---------- Borders / Dividers ---------- */
+  --border: #1E293B;
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --divider: rgba(148, 163, 184, 0.10);
+
+  /* ---------- Text ---------- */
+  --text: #E5E7EB;
+  --text-strong: #F8FAFC;
+  --text-secondary: #9CA3AF;
+  --text-muted: #64748B;
+  --text-disabled: #475569;
+
+  /* ---------- Brand (Primary) ---------- */
+  --primary: #3B82F6;
+  --primary-hover: #60A5FA;
+  --primary-active: #2563EB;
+  --primary-soft: rgba(59, 130, 246, 0.16);
+  --primary-glow: rgba(59, 130, 246, 0.32);
+
+  /* ---------- Accent (Secondary) ---------- */
+  --accent: #22D3EE;
+  --accent-soft: rgba(34, 211, 238, 0.14);
+  --accent-glow: rgba(34, 211, 238, 0.28);
+
+  /* ---------- Status ---------- */
+  --success: #34D399;
+  --success-soft: rgba(52, 211, 153, 0.16);
+  --warning: #FBBF24;
+  --warning-soft: rgba(251, 191, 36, 0.18);
+  --danger: #F87171;
+  --danger-soft: rgba(248, 113, 113, 0.16);
+
+  /* ---------- Focus ring ---------- */
+  --ring: var(--primary-glow);
+}
+
+/* ============================================
+   TAILWIND THEME - Maps CSS vars to utilities
+   ============================================ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Surfaces - available as bg-app, bg-surface, etc. */
+  --color-app: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-card: var(--bg-card);
+  --color-card-2: var(--bg-card-2);
+  --color-popover: var(--bg-popover);
+  --color-input: var(--bg-input);
+  --color-muted: var(--bg-muted);
+
+  /* Borders - available as border-border, border-subtle, etc. */
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-divider: var(--divider);
+
+  /* Text - available as text-text, text-strong, etc. */
+  --color-text: var(--text);
+  --color-text-strong: var(--text-strong);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+
+  /* Brand colors - available as bg-primary, text-primary, etc. */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-glow: var(--primary-glow);
+
+  /* Accent colors */
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-glow: var(--accent-glow);
+
+  /* Status colors */
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  /* Focus ring */
+  --color-ring: var(--ring);
 }
 
 html,
@@ -26,6 +166,7 @@ body {
 }
 
 body {
+  background-color: var(--background);
   color: var(--foreground);
 }
 
@@ -42,6 +183,6 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--primary, #2563eb);
   outline-offset: 2px;
 }
